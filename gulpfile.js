@@ -4,7 +4,7 @@
  *
  *
  */
-
+var fs = require('fs');
 var gulp = require('gulp');
 var plumber = require('gulp-plumber');
 var notify = require('gulp-notify');
@@ -16,10 +16,9 @@ var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 
 // 合并js
-var jsArr = ['src/js/wrap-start.js.txt','src/js/select.js','src/js/wrap-end.js.txt'];
-
 gulp.task('concat', function(){
-    gulp.src(jsArr)
+    var jsArr = JSON.parse(fs.readFileSync('./_config/concat_js.json'));
+    return gulp.src(jsArr)
         .pipe(concat('lui.js'))
         .pipe(gulp.dest('dist/js'));
 });
@@ -44,7 +43,7 @@ gulp.task('less-cssmin', ['less'], function(){
         .pipe(plumber({
             errorHandler: notify.onError('Error: <%= error.message %>')
         }))
-        .pipe(minify_css({advanced:false,keepSpecialComments: '*'}))
+        .pipe(minify_css({keepSpecialComments: '*'}))
         .pipe(rename({suffix:'.min'}))
         .pipe(gulp.dest('dist/css'));
 });
@@ -54,6 +53,6 @@ gulp.task('dist', ['concat','less-cssmin']);
 
 // 监听
 gulp.task('default', ['dist'], function () {
-    gulp.watch(['src/js/**'], ['concat']);
+    gulp.watch(['src/js/**','_config/concat_js.json'], ['concat']);
     gulp.watch(['src/less/**'], ['less-cssmin']);
 });

@@ -11,36 +11,28 @@
             margin: 10px;
         }
     </style>
-    <title>Document</title>
+    <title>select</title>
 </head>
 <body>
+<h3>完整写法</h3>
+<div class="lui-select" name="fruit">
+    <a class="lui-select-btn">水蜜桃</a>
+    <ul class="lui-select-option">
+        <li value="xj" disabled>香蕉</li>
+        <li value="pg">苹果</li>
+        <li value="smt" checked>水蜜桃</li>
+    </ul>
+    <input name="fruit" readonly>
+</div>
+<h3>简写</h3>
+<div class="lui-select" name="fruit">
+    <ul class="lui-select-option">
+        <li value="xj" disabled>香蕉</li>
+        <li value="pg">苹果</li>
+        <li value="smt" checked>水蜜桃</li>
+    </ul>
+</div>
 
-<div class="lui-select" tabindex="0">
-    <!--<a class="lui-select-btn"></a>-->
-    <ul class="lui-select-option">
-        <li value="xj" disabled>香蕉</li>
-        <li value="pg">苹果</li>
-        <li value="smt" checked>水蜜桃</li>
-    </ul>
-    <!--<input type="text" name="fruit">-->
-</div>
-<br>
-<div class="lui-select" tabindex="0" name="fruit">
-    <a class="lui-select-btn"></a>
-    <ul class="lui-select-option">
-        <li value="xj" disabled>香蕉</li>
-        <li value="pg">苹果</li>
-        <li value="smt" checked>水蜜桃</li>
-    </ul>
-    <input type="text" name="fruit">
-</div>
-<button>haha</button>
-<select name="" id="">
-    <option value="1">1</option>
-    <option value="1">2</option>
-    <option value="1">3</option>
-    <option value="1">4</option>
-</select>
 <script src="js/jquery-1.9.1.min.js"></script>
 <script src="../dist/js/lui.js"></script>
 <script>

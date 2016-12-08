@@ -1,0 +1,32 @@
+/* 表格 table */
+.lui-table {
+    width: 100%;
+    border-spacing: 0; border-collapse: collapse;
+    > thead, > tbody, > tfoot {
+        > tr {
+            > th,
+            > td {
+                padding: 8px;
+                border-top: solid 1px  @form-border-color;
+                border-bottom: solid 1px  @form-border-color;
+                font-size: 14px; line-height: 20px;
+            }
+        }
+    }
+    > thead {
+        > tr {
+            > th,
+            > td {
+                 color: #000; font-weight: bold;
+            }
+        }
+    }
+    > tbody, > tfoot {
+        > tr {
+            > th,
+            > td {
+               color: #333; font-weight: normal;
+            }
+        }
+    }
+}

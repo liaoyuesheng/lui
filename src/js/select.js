@@ -1,5 +1,9 @@
+
+
 /**
- * select
+ * ---------------------------
+ * select 组件：下拉菜单
+ * ---------------------------
  */
 // 交互
 $(document).on('click', '.lui-select-btn', function () {
@@ -16,12 +20,12 @@ $(document).on('click', '.lui-select-btn', function () {
     })
     .on('click', '.lui-select-option>li', function () {
         var $this = $(this);
-        if($this.attr('disabled') !== undefined) {
+        if ($this.attr('disabled') !== undefined) {
             return $this
         }
         var $wrap = $this.closest('.lui-select'),
             $btn = $wrap.find('.lui-select-btn');
-            $input = $wrap.find('input');
+        $input = $wrap.find('input');
         var txt = $this.text(),
             val = $this.attr('value');
         $btn.text(txt);
@@ -35,45 +39,61 @@ $(document).on('click', '.lui-select-btn', function () {
     });
 
 // 初始化
-$('.lui-select').each(function(){
+$('.lui-select').each(function () {
     initSelect($(this));
 });
 
 // 方法
 /**
  * 初始化下拉菜单（select）方法
- * @param $this 下拉菜单jq对象 或 jq选择器字符串
+ * @param $obj 下拉菜单jq对象 或 jq选择器字符串
  */
-function initSelect($this){
-    if(!($this instanceof jQuery)) {
-        $this = $($this);
+function initSelect($obj) {
+    $obj = $($obj);
+    var tabindex = $obj.attr('tabindex');
+    if (tabindex === undefined || tabindex === '') {
+        $obj.attr('tabindex', 0)
     }
-    var $btn = $this.find('.lui-select-btn'),
-        $option = $this.find('.lui-select-option>li'),
-        $input = $this.find('input');
+    var $btn = $obj.find('.lui-select-btn'),
+        $option = $obj.find('.lui-select-option>li'),
+        $input = $obj.find('input');
     var $currentOption = $option.filter('[checked]');
 
-    if($currentOption.length === 0) {
+    if ($currentOption.length === 0) {
         $currentOption = $option.not('[disabled]').first();
     }
 
     var currentTxt = $currentOption.text(),
         currentVal = $currentOption.attr('value');
 
-    if(!$btn.length) {
-        $this.prepend('<a class="lui-select-btn" value="' + currentVal + '">' + currentTxt + '</a>')
+    if (!$btn.length) {
+        $obj.prepend('<a class="lui-select-btn" value="' + currentVal + '">' + currentTxt + '</a>')
     } else {
-        $btn.text(currentTxt).attr('value',currentVal);
+        $btn.text(currentTxt).attr('value', currentVal);
     }
 
-    var name = $this.attr('name');
+    var name = $obj.attr('name');
 
-    if(!$input.length) {
-        $this.append('<input name="' + name + '" value="' + currentVal + '">')
+    if (!$input.length) {
+        $obj.append('<input name="' + name + '" value="' + currentVal + '" readonly>')
     } else {
         $input.attr('name', name).attr('value', currentVal);
     }
 
     return lui
 }
-lui.initSelect = initSelect;
+
+/**
+ * 获取下拉菜单（select）的value值
+ * @param $obj
+ * @returns {*}
+ */
+function getSelectVal($obj) {
+    $obj = $($obj);
+    return $obj.find('input').val()
+}
+
+lui.select = {
+    init: initSelect,
+    getVal: getSelectVal
+};

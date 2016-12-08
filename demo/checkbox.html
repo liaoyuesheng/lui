@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ZH-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../dist/css/lui.css">
+    <style>
+        body {
+            margin: 10px;
+        }
+        .checkbox-wrap label {
+            display: block;
+        }
+    </style>
+    <title>checkbox</title>
+</head>
+<body>
+<h2>完整写法</h2>
+<div class="lui-checkbox">
+    <input class="checkall" name="hobby" value="swimming" type="checkbox" checked>
+    <i></i>
+</div>
+<div class="lui-checkbox">
+    <input name="hobby" value="football" type="checkbox">
+    <i></i>
+</div>
+<div class="lui-checkbox checkbox">
+    <input name="hobby" value="reading" type="checkbox">
+    <i></i>
+</div>
+<div class="lui-checkbox">
+    <input name="color" value="red" type="radio">
+    <i></i>
+</div>
+<div class="lui-checkbox">
+    <input name="color" value="blue" type="radio">
+    <i></i>
+</div>
+<h2>简写</h2>
+<div class="lui-checkbox" name="hobby" value="swimming" type="checkbox" checked></div>
+<div class="lui-checkbox" name="hobby" value="football" type="checkbox"></div>
+<div class="lui-checkbox" name="hobby" value="reading" type="checkbox"></div>
+<div class="lui-checkbox" name="color2" value="red" type="radio"></div>
+<div class="lui-checkbox" name="color2" value="blue" type="radio"></div>
+<h2>复选功能</h2>
+<div class="checkbox-wrap">
+    <div>爱好：</div>
+    <label>
+        <div class="lui-checkbox lui-checkPart checkbox-all" type="checkbox"></div>
+        全选
+    </label>
+    <label>
+        <div class="lui-checkbox" name="hobby" value="swimming" type="checkbox" checked></div>
+        游泳
+    </label>
+    <label>
+        <div class="lui-checkbox" name="hobby" value="football" type="checkbox"></div>
+        足球
+    </label>
+    <label>
+        <div class="lui-checkbox" name="hobby" value="reading" type="checkbox"></div>
+        阅读
+    </label>
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="../dist/js/lui.js"></script>
+<script>
+    // 添加全选功能
+    lui.checkbox.checkall('.checkbox-wrap', '.checkbox-all');
+
+</script>
+</body>
+</html>

@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 body {
-  font-family: "Microsoft Yahei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", sans-serif;
 }
 body,
 ul,
@@ -33,6 +33,15 @@ ul {
 }
 .pointer {
   cursor: pointer;
+}
+/* 组件动画class */
+.fade {
+  opacity: 0;
+  -webkit-transition: opacity .15s linear;
+  transition: opacity .15s linear;
+}
+.fade.in {
+  opacity: 1;
 }
 /* select */
 .lui-select {
@@ -124,6 +133,138 @@ ul {
   border-bottom-left-radius: 0;
 }
 .lui-select.open .lui-select-option {
+  height: auto;
+}
+/* checkbox and radio */
+.lui-checkbox {
+  position: relative;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+.lui-checkbox input {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.lui-checkbox input + i {
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: solid 1px #999;
+  box-shadow: inset 0 -10px 5px rgba(0, 0, 0, 0.1);
+}
+.lui-checkbox input[type="checkbox"] + i {
+  border-radius: 3px;
+}
+.lui-checkbox input[type="checkbox"]:checked + i:before {
+  content: "√";
+  display: block;
+  font-family: "Microsoft Yahei";
+  font-style: normal;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  font-weight: bold;
+  color: #111;
+}
+.lui-checkbox input[type="radio"] + i {
+  border-radius: 100%;
+}
+.lui-checkbox input[type="radio"]:checked + i:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  margin-left: -4px;
+  margin-top: -4px;
+  background-color: #666;
+}
+.lui-checkbox input:hover + i {
+  border-color: #666;
+}
+.lui-checkbox input:active + i {
+  box-shadow: inset 0 10px 5px rgba(0, 0, 0, 0.1);
+}
+.lui-checkbox.lui-checkPart input + i:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  margin-top: -4px;
+  border-radius: 2px;
+  background-color: #666;
+}
+/* 表格 table */
+.lui-table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+.lui-table > thead > tr > th,
+.lui-table > tbody > tr > th,
+.lui-table > tfoot > tr > th,
+.lui-table > thead > tr > td,
+.lui-table > tbody > tr > td,
+.lui-table > tfoot > tr > td {
+  padding: 8px;
+  border-top: solid 1px #999;
+  border-bottom: solid 1px #999;
+  font-size: 14px;
+  line-height: 20px;
+}
+.lui-table > thead > tr > th,
+.lui-table > thead > tr > td {
+  color: #000;
+  font-weight: bold;
+}
+.lui-table > tbody > tr > th,
+.lui-table > tfoot > tr > th,
+.lui-table > tbody > tr > td,
+.lui-table > tfoot > tr > td {
+  color: #333;
+  font-weight: normal;
+}
+/* collapse 折叠 */
+.lui-collapse {
+  border: solid 1px #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.lui-collapse-head {
+  padding: 10px 15px;
+  background-color: #f5f5f5;
+  font-size: 16px;
+}
+.lui-collapse-head > a {
+  color: inherit;
+}
+.lui-collapse-body {
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: .35s;
+  transition: .35s;
+}
+.lui-collapse-content {
+  padding: 15px;
+  border-top: solid 1px #ddd;
+}
+.lui-collapse.open .lui-collapse-body {
   height: auto;
 }
 

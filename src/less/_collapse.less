@@ -1,0 +1,28 @@
+/* collapse 折叠 */
+.lui-collapse {
+    border: solid 1px #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.lui-collapse-head {
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    >a {
+        color: inherit;
+    }
+    font-size: 16px;
+}
+.lui-collapse-body{
+    height: 0;
+    overflow: hidden;
+    transition: .35s;
+}
+.lui-collapse-content {
+    padding: 15px;
+    border-top: solid 1px #ddd;
+}
+.lui-collapse.open {
+    .lui-collapse-body {
+        height: auto;
+    }
+}

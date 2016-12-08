@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ZH-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../dist/css/lui.css">
+    <style>
+        body {
+            margin: 10px;
+        }
+    </style>
+    <title>table</title>
+</head>
+<body>
+<h2>默认表格</h2>
+<table class="lui-table">
+    <thead>
+    <tr>
+        <td>姓名</td>
+        <td>年龄</td>
+        <td>性别</td>
+        <td>身高</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>王小明</td>
+        <td>19</td>
+        <td>男</td>
+        <td>177</td>
+    </tr>
+    <tr>
+        <td>张小华</td>
+        <td>20</td>
+        <td>男</td>
+        <td>180</td>
+    </tr>
+    <tr>
+        <td>刘晓静</td>
+        <td>18</td>
+        <td>女</td>
+        <td>165</td>
+    </tr>
+    </tbody>
+</table>
+<h2>带复选框的表格</h2>
+<table class="lui-table lui-table-checkbox">
+    <thead>
+    <tr>
+        <td><div class="lui-checkbox" type="checkbox"></div></td>
+        <td>姓名</td>
+        <td>年龄</td>
+        <td>性别</td>
+        <td>身高</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><div class="lui-checkbox" name="people" value="wangxiaoming" type="checkbox"></div></td>
+        <td>王小明</td>
+        <td>19</td>
+        <td>男</td>
+        <td>177</td>
+    </tr>
+    <tr>
+        <td><div class="lui-checkbox" name="people" value="wangxiaoming" type="checkbox"></div></td>
+        <td>张小华</td>
+        <td>20</td>
+        <td>男</td>
+        <td>180</td>
+    </tr>
+    <tr>
+        <td><div class="lui-checkbox" name="people" value="wangxiaoming" type="checkbox"></div></td>
+        <td>刘晓静</td>
+        <td>18</td>
+        <td>女</td>
+        <td>165</td>
+    </tr>
+    </tbody>
+</table>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="../dist/js/lui.js"></script>
+<script></script>
+</body>
+</html>
