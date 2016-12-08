@@ -1,9 +1,9 @@
 [
-  "src/js/wrap-start.js.txt",
+  "src/js/wrap-start.js",
   "src/js/base.js",
   "src/js/select.js",
   "src/js/checkbox.js",
   "src/js/table.js",
   "src/js/collapse.js",
-  "src/js/wrap-end.js.txt"
+  "src/js/wrap-end.js"
 ]
